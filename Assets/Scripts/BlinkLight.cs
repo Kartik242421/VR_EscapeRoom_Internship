@@ -1,35 +1,27 @@
 using UnityEngine;
+using System.Collections;
 
 public class BlinkLight : MonoBehaviour
 {
-    public Light warningLight;
-    public float blinkInterval = 0.5f;
-
-    private float timer;
+    public GameObject targetObject; // The object to enable/disable
+    public float blinkInterval = 0.5f; // Interval at which the object blinks
 
     void Start()
     {
-        if (warningLight == null)
+        if (targetObject == null)
         {
-            warningLight = GetComponent<Light>();
+            targetObject = gameObject; // Default to the GameObject this script is attached to
         }
 
-        if (warningLight == null)
-        {
-            Debug.LogError("No Light component found on this GameObject. Please attach a Light component or assign one in the inspector.");
-            enabled = false;
-            return;
-        }
+        StartCoroutine(Blink());
     }
 
-    void Update()
+    IEnumerator Blink()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= blinkInterval)
+        while (true)
         {
-            warningLight.enabled = !warningLight.enabled;
-            timer = 0f;
+            yield return new WaitForSeconds(blinkInterval);
+            targetObject.SetActive(!targetObject.activeSelf); // Toggle the active state
         }
     }
 }
