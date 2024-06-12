@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class BlinkLight : MonoBehaviour
 {
-    public Light warningLight;  // The light component that will blink
-    public float blinkInterval = 0.5f;  // The interval between blinks
+    public Light warningLight;
+    public float blinkInterval = 0.5f;
 
-    private float nextBlinkTime;
+    private float timer;
 
     void Start()
     {
@@ -20,16 +20,16 @@ public class BlinkLight : MonoBehaviour
             enabled = false;
             return;
         }
-
-        nextBlinkTime = Time.time + blinkInterval;
     }
 
     void Update()
     {
-        if (Time.time >= nextBlinkTime)
+        timer += Time.deltaTime;
+
+        if (timer >= blinkInterval)
         {
-            warningLight.enabled = !warningLight.enabled;  // Toggle the light's enabled state
-            nextBlinkTime = Time.time + blinkInterval;
+            warningLight.enabled = !warningLight.enabled;
+            timer = 0f;
         }
     }
 }
