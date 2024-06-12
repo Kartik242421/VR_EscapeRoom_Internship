@@ -10,11 +10,15 @@ public class MovingDoor : MonoBehaviour
     private Vector3 closedPosition;
     private Vector3 openPosition;
     private bool isOpening = false;
+    private AudioSource audioSource; // Reference to the AudioSource component
 
     void Start()
     {
         closedPosition = transform.position;
         openPosition = closedPosition + new Vector3(0, openHeight, 0);
+
+        // Get the AudioSource component attached to this GameObject
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,6 +39,12 @@ public class MovingDoor : MonoBehaviour
         {
             isOpening = true;
             StopAllCoroutines();
+
+            // Play the audio clip attached to the AudioSource component
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
     }
 
@@ -45,6 +55,7 @@ public class MovingDoor : MonoBehaviour
             StartCoroutine(CloseDoorAfterDelay());
         }
     }
+
     IEnumerator CloseDoorAfterDelay()
     {
         yield return new WaitForSeconds(delay);
