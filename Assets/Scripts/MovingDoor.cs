@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class SlidingDoorWithDelay : MonoBehaviour
+public class MovingDoor : MonoBehaviour
 {
-    public Transform door;
     public float openHeight = 3.0f;
     public float speed = 2.0f;
     public float delay = 3.0f;
@@ -14,7 +13,7 @@ public class SlidingDoorWithDelay : MonoBehaviour
 
     void Start()
     {
-        closedPosition = door.position;
+        closedPosition = transform.position;
         openPosition = closedPosition + new Vector3(0, openHeight, 0);
     }
 
@@ -22,11 +21,11 @@ public class SlidingDoorWithDelay : MonoBehaviour
     {
         if (isOpening)
         {
-            door.position = Vector3.Lerp(door.position, openPosition, Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, openPosition, Time.deltaTime * speed);
         }
         else
         {
-            door.position = Vector3.Lerp(door.position, closedPosition, Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, closedPosition, Time.deltaTime * speed);
         }
     }
 
