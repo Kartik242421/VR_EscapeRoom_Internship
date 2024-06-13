@@ -10,11 +10,15 @@ public class RoomDoor : MonoBehaviour
     private Vector3 closedPosition;
     private Vector3 openPosition;
     private bool isOpening = false;
+    private AudioSource audioSource;
+
 
     void Start()
     {
         closedPosition = transform.position;
         openPosition = closedPosition + new Vector3(openHeight, 0, 0);
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -35,6 +39,10 @@ public class RoomDoor : MonoBehaviour
         {
             isOpening = true;
             StopAllCoroutines();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
     }
 
