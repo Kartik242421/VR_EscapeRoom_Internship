@@ -2348,10 +2348,10 @@
                 {
                     "name": "",
                     "id": "9f2a7c29-a588-4b6a-a966-955eb408c526",
-                    "path": "*/{Submit}",
+                    "path": "*/Any",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -2371,6 +2371,17 @@
                     "name": "",
                     "id": "198e6869-709e-448d-96d4-27186c9d56e6",
                     "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "921271a0-644a-4522-864d-97b324785a87",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
