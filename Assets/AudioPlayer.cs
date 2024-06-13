@@ -4,6 +4,7 @@ public class AudioPlayer : MonoBehaviour
 {
     // Assign the audio clip in the inspector
     public AudioClip triggerSound;
+    public GameObject arrow;
 
     // Reference to the audio source component
     private AudioSource audioSource;
@@ -19,6 +20,7 @@ public class AudioPlayer : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             audioSource.Play();
+            arrow.SetActive(false);
         }
     }
 }
