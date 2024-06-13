@@ -3,14 +3,23 @@ using System.Collections;
 
 public class BlinkLight : MonoBehaviour
 {
-    public GameObject targetObject; 
-    public float blinkInterval = 0.5f; 
+    public GameObject targetObject;
+    public float blinkInterval = 0.5f;
+    public AudioSource audioSource;
 
     void Start()
     {
+        //audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.loop = true; 
+            audioSource.Play(); 
+        }
+
         if (targetObject == null)
         {
-            targetObject = gameObject; 
+            targetObject = gameObject;
         }
 
         StartCoroutine(Blink());
@@ -21,7 +30,7 @@ public class BlinkLight : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(blinkInterval);
-            targetObject.SetActive(!targetObject.activeSelf); 
+            targetObject.SetActive(!targetObject.activeSelf);
         }
     }
 }
