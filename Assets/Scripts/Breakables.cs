@@ -6,6 +6,8 @@ public class Breakables : MonoBehaviour
 {
 
     public List<GameObject> breakablePieces;
+    public float timeToBreak = 2;
+    private float timer = 0;
 
     
     // Start is called before the first frame update
@@ -19,12 +21,16 @@ public class Breakables : MonoBehaviour
 
     public void Break()
     {
-        foreach(var item in breakablePieces)
+        timer += Time.deltaTime;
+        if (timer > timeToBreak)
         {
-            item.SetActive(true);
-            item.transform.parent = null;
+            foreach (var item in breakablePieces)
+            {
+                item.SetActive(true);
+                item.transform.parent = null;
+            }
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
