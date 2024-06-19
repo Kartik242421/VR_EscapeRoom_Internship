@@ -10,7 +10,7 @@ public class TriggerZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == Ttag)
+       if (other.gameObject.tag == Ttag)
         {
             trigger.Invoke(other.gameObject);
         }
