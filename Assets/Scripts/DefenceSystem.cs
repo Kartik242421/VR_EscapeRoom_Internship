@@ -64,7 +64,7 @@ public class DefenceSystem : MonoBehaviour
     {
         defenceButton.SetActive(true);
 
-        Debug.Log("Defence system activated!");
+        //Debug.Log("Defence system activated!");
     }
 
     private void DeactivateDefenceSystem()
