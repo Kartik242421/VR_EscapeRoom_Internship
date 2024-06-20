@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class FadeScreenOut : MonoBehaviour
 {
-    public bool faceOnStart = true;
+    public bool fadeOnStart;
     public float fadeDuration = 2;
     public Color fadeColor;
-    private Renderer rend;
+    public Renderer rend;
     
     void Start()
     {
         rend = GetComponent<Renderer>();
-        if(faceOnStart){
-            FadeIn() ;
+        //rend.enabled=false;
+        if(fadeOnStart){
+            FadeOut();
         }
     }
 
@@ -32,6 +33,7 @@ public class FadeScreenOut : MonoBehaviour
     }
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
+        //rend.enabled=true;
         float timer = 0;
         while (timer <= fadeDuration)
         {
@@ -40,7 +42,7 @@ public class FadeScreenOut : MonoBehaviour
 
             rend.material.SetColor("_Color",newColor); 
 
-            timer =+ Time.deltaTime;
+            timer += Time.deltaTime;
             yield return null;
         }
         Color newColor2 = fadeColor;
