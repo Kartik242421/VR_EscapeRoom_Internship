@@ -6,6 +6,7 @@ using UnityEngine;
 public class FadeScreenOut : MonoBehaviour
 {
     public bool fadeOnStart;
+    public bool fadeOnEnd;
     public float fadeDuration = 2;
     public Color fadeColor;
     public Renderer rend;
@@ -15,6 +16,9 @@ public class FadeScreenOut : MonoBehaviour
         rend = GetComponent<Renderer>();
         //rend.enabled=false;
         if(fadeOnStart){
+            FadeIn();
+        }
+        if(fadeOnEnd){
             FadeOut();
         }
     }
