@@ -1,54 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneTransitionManager : MonoBehaviour
 {
-    public FadeScreen fadeScreen;
-    public static SceneTransitionManager singleton;
+    public static string PreviousSceneName { get; private set; }
 
     private void Awake()
     {
-        if (singleton && singleton != this)
-            Destroy(singleton);
+        // Ensure this object persists across scenes
+        DontDestroyOnLoad(gameObject);
 
-        singleton = this;
+        // Additional setup can be added here if needed
     }
 
-    public void GoToScene(int sceneIndex)
+    public static void LoadScene(string sceneName)
     {
-        StartCoroutine(GoToSceneRoutine(sceneIndex));
+        PreviousSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
 
-    IEnumerator GoToSceneRoutine(int sceneIndex)
+    public static void RestartPreviousScene()
     {
-        fadeScreen.FadeOut();
-        yield return new WaitForSeconds(fadeScreen.fadeDuration);
-
-        //Launch the new scene
-        SceneManager.LoadScene(sceneIndex);
-    }
-
-    public void GoToSceneAsync(int sceneIndex)
-    {
-        StartCoroutine(GoToSceneAsyncRoutine(sceneIndex));
-    }
-
-    IEnumerator GoToSceneAsyncRoutine(int sceneIndex)
-    {
-        fadeScreen.FadeOut();
-        //Launch the new scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        operation.allowSceneActivation = false;
-
-        float timer = 0;
-        while(timer <= fadeScreen.fadeDuration && !operation.isDone)
+        if (!string.IsNullOrEmpty(PreviousSceneName))
         {
-            timer += Time.deltaTime;
-            yield return null;
+            SceneManager.LoadScene(PreviousSceneName);
         }
-
-        operation.allowSceneActivation = true;
+        else
+        {
+            Debug.LogWarning("Previous scene name is not set.");
+        }
     }
 }
