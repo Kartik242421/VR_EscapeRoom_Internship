@@ -8,7 +8,6 @@ public class UIManagerScene : MonoBehaviour
     public GameObject task1;
     public GameObject task2;
     public GameObject task21;
-    public GameObject allow;
     public GameObject buttonui;
     public GameObject lever1ui;
     public GameObject lever2ui;
@@ -20,13 +19,11 @@ public class UIManagerScene : MonoBehaviour
     public void FirstTask()
     {
         task1.SetActive(false);
-        allow.SetActive(true);
     }
     public void SecondTask()
     {
         task2.SetActive(false);
         task21.SetActive(false);
-        allow.SetActive(true);
     }
     public void buttonpressed()
     {
