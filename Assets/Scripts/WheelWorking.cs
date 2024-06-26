@@ -19,9 +19,13 @@ public class WheelWorking : MonoBehaviour
 
     void Update()
     {
+        
         if (wheel1.value >= 1)
         {
+            wheel1.value = 1f;
             OnWheelStateChanged();
+
+
         }
     }
 
@@ -30,7 +34,7 @@ public class WheelWorking : MonoBehaviour
         voice1.Play();
         voice2.Play();
         Debug.Log("Oxygen regenerated ____");
-        StartCoroutine(ChangeLevelAfterDelay(15f));  // Start the coroutine
+        StartCoroutine(ChangeLevelAfterDelay(60f));  // Start the coroutine
     }
 
     private IEnumerator ChangeLevelAfterDelay(float delay)

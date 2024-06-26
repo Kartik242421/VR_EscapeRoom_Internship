@@ -18,7 +18,7 @@ public class OxygenRoomLever : MonoBehaviour
     public OxygenRoomDoor door1;
     public OxygenRoomDoor door2;
     public OxygenRoomDoor door3;
-    public AudioSource audio;
+    //public AudioSource wheelActivationSound;
 
 
     // Start is called before the first frame update
@@ -98,7 +98,7 @@ public class OxygenRoomLever : MonoBehaviour
     private void ActivateWheel()
     {
         wheelObject.SetActive(true);
-        audio.Play();
+        //wheelActivationSound.Play();
         Debug.Log("Wheel activated");
     }    
 }
