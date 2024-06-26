@@ -18,6 +18,7 @@ public class OxygenRoomLever : MonoBehaviour
     public OxygenRoomDoor door1;
     public OxygenRoomDoor door2;
     public OxygenRoomDoor door3;
+    public AudioSource audio;
 
 
     // Start is called before the first frame update
@@ -69,15 +70,13 @@ public class OxygenRoomLever : MonoBehaviour
         }
 
 
-        // Check if both levers are on
+        // Check if all levers are on
         if (isLever1Activated && isLever2Activated && isLever3Activated)
         {
             ActivateWheel();
+            
         }
-        /*else
-        {
-            DeactivateDefenceSystem();
-        }*/
+      
     }
 
     private void OnLeverStateChanged(XRLever lever, bool isOn)
@@ -99,7 +98,7 @@ public class OxygenRoomLever : MonoBehaviour
     private void ActivateWheel()
     {
         wheelObject.SetActive(true);
-
+        audio.Play();
         Debug.Log("Wheel activated");
     }    
 }
