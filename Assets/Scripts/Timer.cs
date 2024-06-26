@@ -37,6 +37,6 @@ public class TimerScript : MonoBehaviour
     void UpdateTimerUI()
     {
         int wholeSeconds = Mathf.CeilToInt(timer); // Convert the timer to whole seconds
-        timerText.text = "Timer:" + wholeSeconds.ToString() + " sec"; // Update the UI Text component
+        timerText.text = "Time\n" + wholeSeconds.ToString() + " sec"; // Update the UI Text component
     }
 }
