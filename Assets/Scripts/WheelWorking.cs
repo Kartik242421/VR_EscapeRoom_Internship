@@ -6,12 +6,12 @@ using UnityEngine.XR.Content.Interaction;
 public class WheelWorking : MonoBehaviour
 {
     public XRKnob wheel1;
-    private bool isWheel1Activated;
+    //private bool isWheel1Activated;
 
     void Start()
     {
         wheel1.value = 0.0f;
-        isWheel1Activated = false;
+        //isWheel1Activated = false;
     }
 
     void Update()
