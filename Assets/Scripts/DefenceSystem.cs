@@ -42,10 +42,10 @@ public class DefenceSystem : MonoBehaviour
         {
             ActivateDefenceSystem();
         }
-        else
+        /*else
         {
             DeactivateDefenceSystem();
-        }
+        }*/
     }
 
     private void OnLeverStateChanged(XRLever lever, bool isOn)

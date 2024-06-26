@@ -8,12 +8,17 @@ public class OxygenRoomLever : MonoBehaviour
     public XRLever lever1; 
     public XRLever lever2; 
     public XRLever lever3; 
-    public OxygenRoomDoor door; // Reference to the OxygenRoomDoor script
 
     public GameObject wheelObject;
     private bool isLever1Activated;
     private bool isLever2Activated;
     private bool isLever3Activated;
+
+
+    public OxygenRoomDoor door1;
+    public OxygenRoomDoor door2;
+    public OxygenRoomDoor door3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +27,8 @@ public class OxygenRoomLever : MonoBehaviour
         // Initialize the lever states
         isLever1Activated = lever1.value;
         isLever2Activated = lever2.value;
-        isLever3Activated = lever3.value;
+        isLever3Activated = lever2.value;
+
     }
 
     // Update is called once per frame
@@ -42,27 +48,36 @@ public class OxygenRoomLever : MonoBehaviour
             OnLeverStateChanged(lever2, isLever2Activated);
         }
 
-        // Check if lever3 state has changed
         if (lever3.value != isLever3Activated)
         {
             isLever3Activated = lever3.value;
             OnLeverStateChanged(lever3, isLever3Activated);
         }
 
-        if(isLever1Activated){
-            door.isMovingToTarget = true;
-            Debug.Log("MovingDoor");
+
+        if(isLever1Activated)
+        {
+            door1.isMovingToTarget = true;
+        }
+        if(isLever2Activated)
+        {
+            door2.isMovingToTarget = true;
+        }
+        if(isLever3Activated)
+        {
+            door3.isMovingToTarget = true;
         }
 
-        // Check if all levers are on
+
+        // Check if both levers are on
         if (isLever1Activated && isLever2Activated && isLever3Activated)
         {
             ActivateWheel();
         }
-        else
+        /*else
         {
-            ActivateWheel();
-        }
+            DeactivateDefenceSystem();
+        }*/
     }
 
     private void OnLeverStateChanged(XRLever lever, bool isOn)
@@ -70,8 +85,6 @@ public class OxygenRoomLever : MonoBehaviour
         if (lever == lever1)
         {
             Debug.Log(isOn ? "Lever 1 activated!" : "Lever 1 deactivated!");
-            //door.isMovingToTarget = isOn;
-            //Debug.Log("isMovingToTarget set to: " + door.isMovingToTarget);
         }
         else if (lever == lever2)
         {
@@ -86,11 +99,7 @@ public class OxygenRoomLever : MonoBehaviour
     private void ActivateWheel()
     {
         wheelObject.SetActive(true);
-        //Debug.Log("Defence system activated!");
-    }
 
-    private void DeactivateDefenceSystem()
-    {
-        Debug.Log("Defence system deactivated!");
-    }
+        Debug.Log("Wheel activated");
+    }    
 }
