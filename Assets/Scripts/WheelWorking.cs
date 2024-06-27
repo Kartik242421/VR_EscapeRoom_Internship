@@ -39,7 +39,7 @@ public class WheelWorking : MonoBehaviour
         smokeVfx.SetActive(true);
         Debug.Log("Oxygen regenerated __");
 
-        StartCoroutine(ChangeLevelAfterDelay(60f));
+        StartCoroutine(ChangeLevelAfterDelay(25f));
     }
 
     private IEnumerator ChangeLevelAfterDelay(float delay)
