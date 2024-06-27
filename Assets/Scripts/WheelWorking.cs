@@ -1,31 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
-using UnityEngine.SceneManagement;  // Required for scene management
+using UnityEngine.SceneManagement;
 
 public class WheelWorking : MonoBehaviour
 {
     public AudioSource voice1;
     public AudioSource voice2;
     public XRKnob wheel1;
-    //private bool isWheel1Activated;
+    private bool isWheel1Activated;
 
     void Start()
     {
         wheel1.value = 0.0f;
-        //isWheel1Activated = false;
+        isWheel1Activated = false; // Initialize the flag to false
     }
 
     void Update()
     {
-        
-        if (wheel1.value >= 0.8f)
+        if (wheel1.value >= 1 && !isWheel1Activated)
         {
             wheel1.value = 1f;
             OnWheelStateChanged();
-
-
+            isWheel1Activated = true; // Set the flag to true after the function is called
         }
     }
 
@@ -33,8 +30,8 @@ public class WheelWorking : MonoBehaviour
     {
         voice1.Play();
         voice2.Play();
-        Debug.Log("Oxygen regenerated ____");
-        StartCoroutine(ChangeLevelAfterDelay(30f));  // Start the coroutine
+        Debug.Log("Oxygen regenerated __");
+        StartCoroutine(ChangeLevelAfterDelay(60f));
     }
 
     private IEnumerator ChangeLevelAfterDelay(float delay)
