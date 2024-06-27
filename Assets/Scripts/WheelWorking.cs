@@ -9,6 +9,8 @@ public class WheelWorking : MonoBehaviour
     public AudioSource voice2;
     public XRKnob wheel1;
     private bool isWheel1Activated;
+    public GameObject timerui;
+    public GameObject timerScript;
 
     void Start()
     {
@@ -30,6 +32,8 @@ public class WheelWorking : MonoBehaviour
     {
         voice1.Play();
         voice2.Play();
+        timerScript.SetActive(false);
+        timerui.SetActive(false);
         Debug.Log("Oxygen regenerated __");
         StartCoroutine(ChangeLevelAfterDelay(60f));
     }
