@@ -11,9 +11,11 @@ public class WheelWorking : MonoBehaviour
     private bool isWheel1Activated;
     public GameObject timerui;
     public GameObject timerScript;
+    public GameObject smokeVfx;
 
     void Start()
     {
+        smokeVfx.SetActive(false);
         wheel1.value = 0.0f;
         isWheel1Activated = false; // Initialize the flag to false
     }
@@ -34,7 +36,9 @@ public class WheelWorking : MonoBehaviour
         voice2.Play();
         timerScript.SetActive(false);
         timerui.SetActive(false);
+        smokeVfx.SetActive(true);
         Debug.Log("Oxygen regenerated __");
+
         StartCoroutine(ChangeLevelAfterDelay(60f));
     }
 
