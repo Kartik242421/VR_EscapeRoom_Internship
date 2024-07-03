@@ -12,6 +12,7 @@ public class WheelWorking : MonoBehaviour
     public GameObject timerui;
     public GameObject timerScript;
     public GameObject smokeVfx;
+    public GameObject Checkbox;
 
     private bool hasWheelIncreasedOxygen;
     
@@ -47,6 +48,8 @@ public class WheelWorking : MonoBehaviour
         timerScript.SetActive(false);
         timerui.SetActive(false);
         smokeVfx.SetActive(true);
+        Checkbox.SetActive(true);
+
         Debug.Log("Oxygen regenerated __");
 
         StartCoroutine(ChangeLevelAfterDelay(25f));
