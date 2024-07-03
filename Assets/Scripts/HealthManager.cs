@@ -10,10 +10,10 @@ public class HealthManager : MonoBehaviour
     private Image oxygenBarImage;
 
     public float currentHealth;
-    private float maxHealth = 100f;
+    private float maxHealth = 120f;
 
     public float currentOxygen;
-    private float maxOxygen = 100f;
+    private float maxOxygen = 120f;
 
     [SerializeField]
     private float lerpDuration = 0.5f;

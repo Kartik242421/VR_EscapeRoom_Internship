@@ -8,6 +8,10 @@ public class TimerScript : MonoBehaviour
     public string endSceneName; // Name of the end scene to load after the timer ends
     public Text timerText; // Reference to the UI Text component
 
+    public bool lvl4;
+    public bool lvl2;
+
+
     private float timer;
 
     void Start()
@@ -37,7 +41,16 @@ public class TimerScript : MonoBehaviour
     void UpdateTimerUI()
     {
         int wholeSeconds = Mathf.CeilToInt(timer); // Convert the timer to whole seconds
-        HealthManager.Instance.ChangeOxygen(-1);
+        if (lvl4)
+        {
+            HealthManager.Instance.ChangeOxygen(-1);
+
+        }
+        if (lvl2)
+        {
+            HealthManager.Instance.ChangeHealth(-1);
+
+        }
         timerText.text = wholeSeconds.ToString() ; // Update the UI Text component
     }
 }
