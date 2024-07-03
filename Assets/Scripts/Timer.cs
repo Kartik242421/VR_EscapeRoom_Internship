@@ -37,6 +37,7 @@ public class TimerScript : MonoBehaviour
     void UpdateTimerUI()
     {
         int wholeSeconds = Mathf.CeilToInt(timer); // Convert the timer to whole seconds
+        HealthManager.Instance.ChangeOxygen(-1);
         timerText.text = wholeSeconds.ToString() ; // Update the UI Text component
     }
 }

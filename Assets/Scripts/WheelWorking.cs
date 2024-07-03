@@ -13,8 +13,14 @@ public class WheelWorking : MonoBehaviour
     public GameObject timerScript;
     public GameObject smokeVfx;
 
+    private bool hasWheelIncreasedOxygen;
+    
+
     void Start()
     {
+
+        hasWheelIncreasedOxygen = false;
+
         smokeVfx.SetActive(false);
         wheel1.value = 0.0f;
         isWheel1Activated = false; // Initialize the flag to false
@@ -26,6 +32,10 @@ public class WheelWorking : MonoBehaviour
         {
             wheel1.value = 1f;
             OnWheelStateChanged();
+            if(!hasWheelIncreasedOxygen){
+                HealthManager.Instance.ChangeOxygen(100f);
+                hasWheelIncreasedOxygen = true;
+            }
             isWheel1Activated = true; // Set the flag to true after the function is called
         }
     }

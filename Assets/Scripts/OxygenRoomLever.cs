@@ -14,12 +14,9 @@ public class OxygenRoomLever : MonoBehaviour
     private bool isLever2Activated;
     private bool isLever3Activated;
 
-
     public OxygenRoomDoor door1;
     public OxygenRoomDoor door2;
     public OxygenRoomDoor door3;
-    //public AudioSource wheelActivationSound;
-
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +25,9 @@ public class OxygenRoomLever : MonoBehaviour
         // Initialize the lever states
         isLever1Activated = lever1.value;
         isLever2Activated = lever2.value;
-        isLever3Activated = lever2.value;
+        isLever3Activated = lever3.value;
 
+        
     }
 
     // Update is called once per frame
@@ -49,34 +47,34 @@ public class OxygenRoomLever : MonoBehaviour
             OnLeverStateChanged(lever2, isLever2Activated);
         }
 
+        // Check if lever3 state has changed
         if (lever3.value != isLever3Activated)
         {
             isLever3Activated = lever3.value;
             OnLeverStateChanged(lever3, isLever3Activated);
         }
 
-
-        if(isLever1Activated)
+        // Handle door and oxygen changes based on lever activation
+        if (isLever1Activated )
         {
-            door1.isMovingToTarget = true;
-        }
-        if(isLever2Activated)
-        {
-            door2.isMovingToTarget = true;
-        }
-        if(isLever3Activated)
-        {
-            door3.isMovingToTarget = true;
+            door1.isMovingToTarget = true;            
         }
 
+        if (isLever2Activated )
+        {
+            door2.isMovingToTarget = true;            
+        }
+
+        if (isLever3Activated )
+        {
+            door3.isMovingToTarget = true;            
+        }
 
         // Check if all levers are on
         if (isLever1Activated && isLever2Activated && isLever3Activated)
         {
             ActivateWheel();
-            
         }
-      
     }
 
     private void OnLeverStateChanged(XRLever lever, bool isOn)
@@ -98,7 +96,6 @@ public class OxygenRoomLever : MonoBehaviour
     private void ActivateWheel()
     {
         wheelObject.SetActive(true);
-        //wheelActivationSound.Play();
         Debug.Log("Wheel activated");
-    }    
+    }
 }
