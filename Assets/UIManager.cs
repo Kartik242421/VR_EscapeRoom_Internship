@@ -19,6 +19,10 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
+    public void MissionBrief()
+    {
+        SceneManager.LoadScene(6);
+    }
     public void Aboutbutton()
     {
         Option.SetActive(false);
@@ -31,6 +35,10 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
 
+    }
+    public void HomeScreen()
+    {
+        SceneManager.LoadScene(0);
     }
     public void OptionButton()
     {
