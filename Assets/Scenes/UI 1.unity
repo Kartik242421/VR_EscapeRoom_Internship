@@ -5337,6 +5337,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &322587220 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95035710751915312, guid: 82d337d63a4f4e84dae853a5dcdfb7a8, type: 3}
+  m_PrefabInstance: {fileID: 1794169713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &339594623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21452,7 +21457,8 @@ MonoBehaviour:
   - Captain, our ship encountered an asteroid belt while interstellar travel. To
     keep the ship secure and improve our chances of survival, you'll need to perform
     a series of critical tasks. Press 'Start' to begin your survival journey.
-  textspeed: 0.08
+  textspeed: 0.05
+  animator: {fileID: 322587220}
 --- !u!114 &1624781819
 MonoBehaviour:
   m_ObjectHideFlags: 0

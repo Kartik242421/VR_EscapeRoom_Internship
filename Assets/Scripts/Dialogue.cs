@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textspeed;
     private int index;
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class Dialogue : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textspeed);
         }
+        animator.SetBool("Idle", true);
     }
    /* void NextLine()
     {
