@@ -6,7 +6,14 @@ using UnityEngine.XR.Content.Interaction;
 public class DefenceSystem : MonoBehaviour
 {
     public XRLever lever1; 
-    public XRLever lever2; 
+    public XRLever lever2;
+
+    public GameObject uiLever1Off;
+    public GameObject uiLever1On; 
+    public GameObject uiLever2Off; 
+    public GameObject uiLever2On; 
+
+
     public GameObject defenceButton;
     private bool isLever1Activated;
     private bool isLever2Activated;
@@ -14,6 +21,9 @@ public class DefenceSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiLever1Off.SetActive(true);
+        uiLever2Off.SetActive(true);
+
         defenceButton.SetActive(false);
         // Initialize the lever states
         isLever1Activated = lever1.value;
@@ -27,6 +37,9 @@ public class DefenceSystem : MonoBehaviour
         if (lever1.value != isLever1Activated)
         {
             isLever1Activated = lever1.value;
+            uiLever1Off.SetActive(false);
+            uiLever1On.SetActive(true);
+
             OnLeverStateChanged(lever1, isLever1Activated);
         }
 
@@ -34,6 +47,8 @@ public class DefenceSystem : MonoBehaviour
         if (lever2.value != isLever2Activated)
         {
             isLever2Activated = lever2.value;
+            uiLever2Off.SetActive(false);
+            uiLever2On.SetActive(true);
             OnLeverStateChanged(lever2, isLever2Activated);
         }
 
@@ -53,6 +68,7 @@ public class DefenceSystem : MonoBehaviour
         if (lever == lever1)
         {
             Debug.Log(isOn ? "Lever 1 activated!" : "Lever 1 deactivated!");
+           
         }
         else if (lever == lever2)
         {
