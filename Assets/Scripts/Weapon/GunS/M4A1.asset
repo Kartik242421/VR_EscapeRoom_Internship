@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4141075d97b53ab49a7245cc7922c7c4, type: 3}
+  m_Name: M4A1
+  m_EditorClassIdentifier: 
+  Type: 1
+  Name: M4A1
+  ModelPrefab: {fileID: 1539276452229632413, guid: 6b10042494c21b64ab31e779eda8dfeb, type: 3}
+  SpawnPoint: {x: -0.0142, y: -0.0172, z: -0.0289}
+  SpawnRotation: {x: 0, y: 114, z: 0}
+  ShootConfig: {fileID: 11400000, guid: 4e33a824a55c98743a99e1fcb9801be9, type: 2}
+  TrailConfig: {fileID: 11400000, guid: 47648ef97e09b9247b8f35effd13e11b, type: 2}
