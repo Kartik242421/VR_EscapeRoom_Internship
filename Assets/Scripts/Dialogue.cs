@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         textComponent.text = string.Empty;
         StartDialogue();
