@@ -6,17 +6,17 @@ using UnityEngine.AI;
 public class AIUnit : MonoBehaviour
 {
     public NavMeshAgent Agent;
-    public float AttackRange = 1.0f; // Define the attack range
+    public float AttackRange = 1.0f; 
     private Transform target;
-    private Animator animator; // Reference to the Animator component
-    private bool isShooting = false; // Flag to control shooting state
+    private Animator animator;
+    private bool isShooting = false; 
 
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>(); // Get the Animator component
-        AIManager.Instance.Units.Add(this); // Register this unit with the AIManager
-        target = AIManager.Instance.Target; // Get the target from AIManager
+        animator = GetComponent<Animator>(); 
+        AIManager.Instance.Units.Add(this); 
+        target = AIManager.Instance.Target; 
     }
 
     private void Update()
@@ -27,15 +27,15 @@ public class AIUnit : MonoBehaviour
         if (distanceToTarget <= AttackRange)
         {
             isShooting = true;
-            animator.SetBool("Punch", true); // Set 'shooting' parameter to true in Animator
-            StopMovement(); // Stop movement
-            PerformAttack(); // Call attack logic
+            animator.SetBool("Punch", true); 
+            StopMovement(); 
+            PerformAttack(); 
         }
         else
         {
             isShooting = false;
-            animator.SetBool("Punch", false); // Set 'shooting' parameter to false in Animator
-            MoveToTarget(); // Move towards the target
+            animator.SetBool("Punch", false); 
+            MoveToTarget(); 
         }
     }
 
@@ -43,22 +43,22 @@ public class AIUnit : MonoBehaviour
     {
         if (!isShooting)
         {
-            Agent.SetDestination(target.position); // Move towards the target
+            Agent.SetDestination(target.position); 
         }
         else
         {
-            Agent.ResetPath(); // Stop moving towards the target if shooting
+            Agent.ResetPath(); 
         }
     }
 
     public void MoveTo(Vector3 position)
     {
-        Agent.SetDestination(position); // Move to a specific position
+        Agent.SetDestination(position); 
     }
 
     private void StopMovement()
     {
-        Agent.ResetPath(); // Stop the NavMeshAgent from moving
+        Agent.ResetPath(); 
     }
 
     private void PerformAttack()
