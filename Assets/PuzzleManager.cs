@@ -24,6 +24,8 @@ public class PuzzleManager : MonoBehaviour
     GameObject[,] imageKeyMatrix;
     GameObject[,] imageOfPictureMatrix;
     GameObject[,] checkPointMatrix;
+    public GameObject UI;
+    public GameObject Checkpoints;
 
     // Use this for initialization
     void Start()
@@ -123,6 +125,9 @@ public class PuzzleManager : MonoBehaviour
             {
                 gameisComplete = true;
                 Debug.Log("Game Is Complete");
+                UI.SetActive(true);
+                Checkpoints.SetActive(false);
+
             }
             else
             {
