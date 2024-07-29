@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StepToStepController : MonoBehaviour
 {
+    public InputActionProperty trig;
+    public float trigger;
     public int row, col;
     private PuzzleManager gameMN;
     public Transform handTransform; // Add this line for the hand model
@@ -30,12 +33,14 @@ public class StepToStepController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        trigger = trig.action.ReadValue<float>();
+        Debug.Log(trigger);
         DetectClick();
     }
 
     void DetectClick()
     {
-        if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
+        if (trigger >= 1f) // 0 is the left mouse button
         {
             if (handTransform == null) return;
 
