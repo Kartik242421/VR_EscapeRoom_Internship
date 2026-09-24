@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.019136017, g: 0.009631307, b: 0.039147314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9934,6 +9933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerSound: {fileID: 8300000, guid: c885ac434d83fa141b015b02fcfea367, type: 3}
+  arrow: {fileID: 0}
 --- !u!65 &138589873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35779,6 +35779,8 @@ MonoBehaviour:
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
   m_LineBendRatio: 0.5
+  m_BendingEnabledInteractionLayers:
+    m_Bits: 4294967295
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
@@ -35988,6 +35990,7 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
+  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -37240,6 +37243,8 @@ MonoBehaviour:
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
   m_LineBendRatio: 0.5
+  m_BendingEnabledInteractionLayers:
+    m_Bits: 4294967295
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
@@ -37449,6 +37454,7 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
+  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -68776,7 +68782,6 @@ MonoBehaviour:
   task1: {fileID: 970643936}
   task2: {fileID: 0}
   task21: {fileID: 0}
-  allow: {fileID: 1000326364}
   buttonui: {fileID: 0}
   lever1ui: {fileID: 0}
   lever2ui: {fileID: 0}
@@ -80150,7 +80155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -97195,7 +97200,6 @@ MonoBehaviour:
   task1: {fileID: 970643936}
   task2: {fileID: 157688663}
   task21: {fileID: 112799349}
-  allow: {fileID: 1000326364}
   buttonui: {fileID: 1487832902}
   lever1ui: {fileID: 1137928738}
   lever2ui: {fileID: 214850963}
@@ -110298,6 +110302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerSound: {fileID: 8300000, guid: c885ac434d83fa141b015b02fcfea367, type: 3}
+  arrow: {fileID: 0}
 --- !u!65 &1688271463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129597,6 +129602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerSound: {fileID: 8300000, guid: c39852fd69959104b92b7fd52ed39c05, type: 3}
+  arrow: {fileID: 0}
 --- !u!65 &1968050490
 BoxCollider:
   m_ObjectHideFlags: 0

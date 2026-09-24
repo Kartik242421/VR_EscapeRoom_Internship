@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.018948324, g: 0.009466901, b: 0.038837537, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20254,12 +20253,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1001 &262704701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23479,6 +23478,8 @@ MonoBehaviour:
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
   m_LineBendRatio: 0.5
+  m_BendingEnabledInteractionLayers:
+    m_Bits: 4294967295
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
@@ -23688,6 +23689,7 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
+  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -52883,6 +52885,8 @@ MonoBehaviour:
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
   m_LineBendRatio: 0.5
+  m_BendingEnabledInteractionLayers:
+    m_Bits: 4294967295
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
@@ -53092,6 +53096,7 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
+  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -67737,6 +67742,7 @@ MonoBehaviour:
   m_RepeatRate: 0.1
   m_TrackedDeviceDragThresholdMultiplier: 1.4
   m_TrackedScrollDeltaMultiplier: 5
+  m_BypassUIToolkitEvents: 0
   m_ActiveInputMode: 0
   m_MaxTrackedDeviceRaycastDistance: 1000
   m_EnableXRInput: 1
@@ -95228,7 +95234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95925,6 +95931,8 @@ MonoBehaviour:
   m_StopLineAtSelection: 0
   m_SnapEndpointIfAvailable: 1
   m_LineBendRatio: 0.5
+  m_BendingEnabledInteractionLayers:
+    m_Bits: 4294967295
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
@@ -96141,6 +96149,7 @@ MonoBehaviour:
   m_HitDetectionType: 0
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 6
+  m_LiveConeCastDebugVisuals: 0
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 2147483681
@@ -118336,12 +118345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ce5ddf6249973489e5798ce8e806f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 1713866678}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
   shootSource: {fileID: 2026927241}
   distance: 10
+  shootDelay: 0.1
 --- !u!114 &1536824670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119216,12 +119222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ce5ddf6249973489e5798ce8e806f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 1641945729}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
   shootSource: {fileID: 1874789464}
   distance: 10
+  shootDelay: 0.1
 --- !u!114 &1543967405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126796,11 +126799,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3627876708467246624, guid: 006feba16f7a73945b910e18f4cffb06, type: 3}
   m_PrefabInstance: {fileID: 1641945727}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1641945729 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3627876708467246686, guid: 006feba16f7a73945b910e18f4cffb06, type: 3}
-  m_PrefabInstance: {fileID: 1641945727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1642523127
 GameObject:
   m_ObjectHideFlags: 0
@@ -133016,11 +133014,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4292910838336368, guid: 9ad20ca03227a374fa44c9ae60608b6c, type: 3}
   m_PrefabInstance: {fileID: 1713857676}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1713866678 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3627876708467246686, guid: 006feba16f7a73945b910e18f4cffb06, type: 3}
-  m_PrefabInstance: {fileID: 1787192990}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1713866679 stripped
 Transform:
